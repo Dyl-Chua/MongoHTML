@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOH STD ORDERS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .topnav {
+      overflow: hidden;
+      background-color: #333;
+    }
+    
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    
+    .topnav a.active {
+      background-color: #04AA6D;
+      color: white;
+    }
+    </style>
+<div class="topnav">
+      
+  <a href="/ExpMOH">MOH EXP ORDERS</a>
+  <a href="/stdjpmc">JPMC STD ORDERS</a>
+  <a href="/expjpmc">JPMC EXP ORDERS</a>
+  <a href="/stdphc">PHC STD ORDERS</a>
+  <a href="/ImeMoh">MOH IME ORDERS</a>
+  <a href="/">USERS</a>
+  
+  <input type="text" id="mohstdInput" onkeyup="searchTable()" placeholder="Search BruHims">
+
+  </div>
+
+
+
+  <table id="mohstdTable" class="table table-light table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th scope="col">name</th>
+            <th scope="col">bruhims</th>
+            <th scope="col">kampong</th>
+            <th scope="col">jalan</th>
+            <th scope="col">simpang</th>
+            <th scope="col">house_Number</th>
+            <th scope="col">contact_1</th>
+            <th scope="col">email</th>
+            <th scope="col">qo</th>
+            <th scope="col">radioTOD</th>
+            <th scope="col">BNHC</th>
+            <th scope="col">TUHC</th>
+            <th scope="col">TEHC</th>
+            <th scope="col">BHC</th>
+            <th scope="col">radioDistrict</th>
+            <th scope="col">pm</th>
+            <th scope="col">re</th>
+            <th scope="col">radioNOTI</th>
+            <th scope="col">radioDURATION</th>
+            <th scope="col">dateSubmit</th>
+            <th scope="col">ordertaken</th>
+            <th scope="col">Status</th>
+          </tr>
+    
+        <tbody>
+        <%Std_MohOrderList.forEach(Std_MohOrder => {%>
+            <tr>
+                <th scope="row"><%= Std_MohOrder.name %></th>
+                <td><%= Std_MohOrder.bruhims %></td>
+                <td><%= Std_MohOrder.kampong %></td>
+                <td><%= Std_MohOrder.jalan %></td>
+                <td><%= Std_MohOrder.simpang %></td>
+                <td><%= Std_MohOrder.house_Number %></td>
+                <td><%= Std_MohOrder.contact_1 %></td>
+                <td><%= Std_MohOrder.email %></td>
+                <td><%= Std_MohOrder.qo %></td>
+                <td><%= Std_MohOrder.radioTOD %></td>
+                <td><%= Std_MohOrder.BNHC %></td>
+                <td><%= Std_MohOrder.TUHC %></td>
+                <td><%= Std_MohOrder.TEHC %></td>
+                <td><%= Std_MohOrder.BHC %></td>
+                <td><%= Std_MohOrder.radioDistrict %></td>
+                <td><%= Std_MohOrder.pm %></td>
+                <td><%= Std_MohOrder.re %></td>
+                <td><%= Std_MohOrder.radioNOTI %></td>
+                <td><%= Std_MohOrder.radioDURATION %></td>
+                <td><%= Std_MohOrder.dateSubmit %></td>
+                <td><%= Std_MohOrder.ordertaken %></td>
+                <td>   
+                  <form action="" method="post">
+                      <input type="checkbox" name="favorite1" value="Order Taken" /> Order Taken
+                      <input type="checkbox" name="favorite2" value="Not Taken" /> Not taken
+                    
+                    </form>
+                    
+              </td>
+            </tr>
+        <%})%>
+        </tbody>
+      </table>
+      
+      <script>
+        function searchTable() {
+            var input, filter, found, table, tr, td, i, j;
+            input = document.getElementById("mohstdInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("mohstdTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td");
+                for (j = 0; j < td.length; j++) {
+                    if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        found = true;
+                    }
+                }
+                if (found) {
+                    tr[i].style.display = "";
+                    found = false;
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+        </script>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+ 
+
+</body>
+</html>
