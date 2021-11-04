@@ -274,6 +274,13 @@ app.get('/stdphc', (req, res) => {
 })
 
 
+
+app.get('/guestmoh', (req, res) => {
+    res.render('guest_moh');
+})
+
+app.use(express.urlencoded({extended:true}));
+
 app.listen(4000, function() {
     console.log('server is running');
 })
