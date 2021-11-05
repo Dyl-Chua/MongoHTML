@@ -135,7 +135,7 @@
             <th scope="col">radioDURATION</th>
             <th scope="col">dateSubmit</th>
             <th scope="col">ordertaken</th>
-            <th scope="col">SAVE</th>
+            <th scope="col">Status</th>
           </tr>
     
        
@@ -163,18 +163,20 @@
                 <td><%= User.radioDURATION %></td>
                 <td><%= User.dateSubmit %></td>
                 <td><form>
-                <input class="form-control" id="ordertaken" type="radio" name="ordertaken">
+                <input id="bruhims" type="text" name="bruhims">
+                <input id="ordertaken" type="text" name="ordertaken">
                 <label for="ordertaken"> ORDER TAKEN </label>
-                <input class="form-control" id="ordernottaken" type="radio" name="ordernottaken">
-                <label for="ordernottaken"> ORDER NOT TAKEN </label>
-                
-               </form></td>
-                <td><button>SAVE</button></td>
+                <input type="submit" value="Submit">
+                 </form></td>
+                 <td><%= User.ordertaken %></td>
+         
            
             </tr>
         <%})%>
         </tbody>
       </table>
+
+   
 
       <script>
         function searchTable() {

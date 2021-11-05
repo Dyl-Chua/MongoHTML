@@ -1,12 +1,12 @@
-router.get('/edit', (req,res) => {
+router.get("/edit", (req,res) => {
     console.log(User.ordertaken)
-    res.render('/',{
+    res.render("/",{
         ordertaken: User.ordertaken 
    
     })
 })
 
-router.post('/editconfirm', (req,res) => {
+router.post("/editconfirm", (req,res) => {
     console.log(User._id)
     User.findByIdAndUpdate({_id: User._id}, {
         name: req.body.name,
@@ -28,8 +28,8 @@ router.post('/editconfirm', (req,res) => {
     }, (err,users) => {
         if(err){
             console.log(err)
-            res.render('error')
+            res.render("error")
         } 
-        else res.render('editconfirm')
+        else res.render("editconfirm")
     })
 })

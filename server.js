@@ -1,7 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-var mongo = require('mongodb').MongoClient;
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://goRush:gsb2332065@cluster0-shard-00-00.rikek.mongodb.net:27017,cluster0-shard-00-01.rikek.mongodb.net:27017,cluster0-shard-00-02.rikek.mongodb.net:27017/gorush?ssl=true&replicaSet=atlas-tr9az4-shard-0&authSource=admin&retryWrites=true&w=majority";
 var objectID = require('mongodb').ObjectID;
 const ejs = require('ejs');
 const UserList = {};
@@ -10,8 +11,7 @@ const exp_MohOrderList  = {};
 
 app.set('view engine', 'ejs');
 
-mongoose.connect('mongodb://goRush:gsb2332065@cluster0-shard-00-00.rikek.mongodb.net:27017,cluster0-shard-00-01.rikek.mongodb.net:27017,cluster0-shard-00-02.rikek.mongodb.net:27017/gorush?ssl=true&replicaSet=atlas-tr9az4-shard-0&authSource=admin&retryWrites=true&w=majority');
-
+mongoose.connect("mongodb://goRush:gsb2332065@cluster0-shard-00-00.rikek.mongodb.net:27017,cluster0-shard-00-01.rikek.mongodb.net:27017,cluster0-shard-00-02.rikek.mongodb.net:27017/gorush?ssl=true&replicaSet=atlas-tr9az4-shard-0&authSource=admin&retryWrites=true&w=majority");
 
 const usersSchema = {
     name: String,
@@ -51,17 +51,31 @@ app.get('/', (req, res) => {
     })
 })
 
-
-app.post("/", function(req, res)  {
-    let newOrder = new Order({
-        ordertaken: req.body.ordertaken,
-        ordernottaken: req.body.ordernottaken
-    });
-    newOrder.save()
+app.post('/', (req,res) =>{
+    User.findOneAndUpdate({bruhims: req.body.bruhims},{$set: {ordertaken: "YES"}}, (err,users)=>{
+        if (err) throw err
+        else res.render('index')
+    })
 })
+
+/*
+MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("gorush");
+    var myquery = {icNumber: req.body.icNumber	};
+    var newvalues = { $set: {ordertaken: req.body.ot} };
+    dbo.collection("users").updateOne(myquery, newvalues, function(err, res) {
+      if (err) throw err;
+      console.log("1 document updated");
+      db.close();
+    });
+  });
+*/
+
+
 
 app.use(express.urlencoded({extended:true}));
 
 app.listen(3000, function() {
-    console.log('server is running');
+    console.log('server is running 3000');
 })
