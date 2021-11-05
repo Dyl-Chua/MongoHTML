@@ -110,34 +110,10 @@
     
       <table id="usertable" class="table table-light table-striped table-bordered table-hover">
         
-          <thead>
-           <tr class="filters">
-            <th><input type="text" class="form-control" placeholder="Name" enabled></th>
-            <th><input type="text" class="form-control" placeholder="BruHims" enabled></th>
-            <th><input type="text" class="form-control" placeholder="Kampong" enabled></th>
-            <th><input type="text" class="form-control" placeholder="Jalan" enabled></th>
-            <th><input type="text" class="form-control" placeholder="Simpang" enabled></th>
-            <th><input type="text" class="form-control" placeholder="House Number" enabled></th>
-            <th><input type="text" class="form-control" placeholder="Phone Number" enabled></th>
-            <th><input type="text" class="form-control" placeholder="Email" enabled></th>
-            <th><input type="text" class="form-control" placeholder="Quatantine" enabled></th>
-            <th><input type="text" class="form-control" placeholder="Type of Delivery" enabled></th>
-            <th><input type="text" class="form-control" placeholder="Berakas HC" enabled></th>
-            <th><input type="text" class="form-control" placeholder="Tutong HC" enabled></th>
-            <th><input type="text" class="form-control" placeholder="Temburong HC" enabled></th>
-            <th><input type="text" class="form-control" placeholder="Bandard HC" enabled></th>
-            <th><input type="text" class="form-control" placeholder="Districs" enabled></th>
-            <th><input type="text" class="form-control" placeholder="Payment Method" enabled></th>
-            <th><input type="text" class="form-control" placeholder="Remarks" enabled></th>
-            <th><input type="text" class="form-control" placeholder="Notification" enabled></th>
-            <th><input type="text" class="form-control" placeholder="Notification Duration" enabled></th>
-            <th><input type="date" class="form-control" placeholder="Date Submit" enabled></th>
-            <th><input type="text" class="form-control" placeholder="Order Taken" enabled></th>
-          </tr>
-            </thead>
-
+         
             <tbody>
               <tr>
+                <th scope="col">id</th>
             <th scope="col">name</th>
             <th scope="col">bruhims</th>
             <th scope="col">kampong</th>
@@ -159,12 +135,13 @@
             <th scope="col">radioDURATION</th>
             <th scope="col">dateSubmit</th>
             <th scope="col">ordertaken</th>
-            <th scope="col">Status</th>
+            <th scope="col">SAVE</th>
           </tr>
     
        
         <%UserList.forEach(User => {%>
             <tr id="myUL">
+              <td><%= User._id %></td>
                 <th scope="row"><%= User.name %></th>
                 <td><%= User.bruhims %></td>
                 <td><%= User.kampong %></td>
@@ -185,31 +162,15 @@
                 <td><%= User.radioNOTI %></td>
                 <td><%= User.radioDURATION %></td>
                 <td><%= User.dateSubmit %></td>
-                <td><%= User.ordertaken %></td>
-                <td>   
-                    <form action="" method="post">
-                        <input type="checkbox" name="favorite1" value="Order Taken" /> Order Taken
-                        <input type="checkbox" name="favorite2" value="Not Taken" /> Not taken
-
-                        <script>
-                            var saveButton = function(button) {
-                               
-                                button.innerHTML = 'Saving <span class="spinner"></span>';
-                                button.disabled = true;
-
-                                setTimeout(function()   {
-                                    button.innerHTML = 'Saved';
-                                    button.className = 'done';
-                                }, 3000);
-
-                                };
-                            
-                        </script>
-                        <button type="save" value="Submit">Save</button>
-                      
-                      </form>
-                      
-                </td>
+                <td><form>
+                <input class="form-control" id="ordertaken" type="radio" name="ordertaken">
+                <label for="ordertaken"> ORDER TAKEN </label>
+                <input class="form-control" id="ordernottaken" type="radio" name="ordernottaken">
+                <label for="ordernottaken"> ORDER NOT TAKEN </label>
+                
+               </form></td>
+                <td><button>SAVE</button></td>
+           
             </tr>
         <%})%>
         </tbody>
