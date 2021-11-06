@@ -4,13 +4,18 @@ const app = express();
 var mongo = require('mongodb').MongoClient;
 var objectID = require('mongodb').ObjectID;
 const ejs = require('ejs');
+const bodyParser = require("body-parser");
 const UserList = {};
 const StandardMOHtestList = {};
 const exp_MohOrderList  = {};
 
+
 app.set('view engine', 'ejs');
 
+app.use(bodyParser.urlencoded({extended: true}));
+
 mongoose.connect('mongodb://goRush:gsb2332065@cluster0-shard-00-00.rikek.mongodb.net:27017,cluster0-shard-00-01.rikek.mongodb.net:27017,cluster0-shard-00-02.rikek.mongodb.net:27017/gorush?ssl=true&replicaSet=atlas-tr9az4-shard-0&authSource=admin&retryWrites=true&w=majority');
+
 
 
 const usersSchema = {
@@ -50,7 +55,6 @@ app.get('/', (req, res) => {
         console.log(users)
     })
 })
-
 const std_mohordersSchema = {
     name: String,
     bruhims: String,
