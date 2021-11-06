@@ -51,19 +51,19 @@ app.get('/', (req, res) => {
     })
 })
 
-app.post('/', (req,res) =>{
+/*app.post('/', (req,res) =>{
     User.findOneAndUpdate({bruhims: req.body.bruhims},{$set: {ordertaken: "YES"}}, (err,users)=>{
         if (err) throw err
         else res.render('index')
     })
 })
+*/
 
-/*
-MongoClient.connect(url, function(err, db) {
+/*MongoClient.connect(url, function(err, db) {
     if (err) throw err;
     var dbo = db.db("gorush");
-    var myquery = {icNumber: req.body.icNumber	};
-    var newvalues = { $set: {ordertaken: req.body.ot} };
+    var myquery = {bruhims: bruhims	};
+    var newvalues = { $set: {ordertaken: "yes"} };
     dbo.collection("users").updateOne(myquery, newvalues, function(err, res) {
       if (err) throw err;
       console.log("1 document updated");
