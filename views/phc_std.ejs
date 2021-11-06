@@ -62,69 +62,51 @@
 
 
     <table id="phcstdTable" class="table table-light table-striped table-bordered table-hover">
-        <thead>
+       <tbody>
+        <tr>
+      <th scope="col">Quarantine</th>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Bruhims</th>
+      <th scope="col">IC Number</th>
+      <th scope="col">Appointment Place</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Additional Phone Number</th>
+      <th scope="col">Type of Delivery</th>
+      <th scope="col">Remarks</th>
+      <th scope="col">Payment</th>
+      <th scope="col">Submitted Date</th>
+     <th scope="col">Email</th>
+     <th scope="col">Health Center Districts</th>
+     <th scope="col">Notification</th>
+     <th scope="col">Duration</th>
+     </tr>
+     
+     
+     <tbody>
+      <%std_PanagaOrdersList.forEach(std_PanagaOrders => {%>
           <tr>
-            <th scope="col">name</th>
-            <th scope="col">bruhims</th>
-            <th scope="col">kampong</th>
-            <th scope="col">jalan</th>
-            <th scope="col">simpang</th>
-            <th scope="col">house_Number</th>
-            <th scope="col">contact_1</th>
-            <th scope="col">email</th>
-            <th scope="col">qo</th>
-            <th scope="col">radioTOD</th>
-            <th scope="col">BNHC</th>
-            <th scope="col">TUHC</th>
-            <th scope="col">TEHC</th>
-            <th scope="col">BHC</th>
-            <th scope="col">radioDistrict</th>
-            <th scope="col">pm</th>
-            <th scope="col">re</th>
-            <th scope="col">radioNOTI</th>
-            <th scope="col">radioDURATION</th>
-            <th scope="col">dateSubmit</th>
-            <th scope="col">ordertaken</th>
-            <th scope="col">Status</th>
+            <td><%= std_PanagaOrders.qo %></td>
+              <th scope="row"><%= std_PanagaOrders.name %></th>
+              <td><%= std_PanagaOrders.kampong %>, <%= std_PanagaOrders.jalan %>, <%= std_PanagaOrders.simpang %>, <%= std_PanagaOrders.house_Number %></td>             
+              <td><%= std_PanagaOrders.bruhims %></td>
+              <td><%= std_PanagaOrders.icNumber %></td>
+              <td><%= std_PanagaOrders.BNHC %>, <%= std_PanagaOrders.TUHC %>, <%= std_PanagaOrders.TEHC %>, <%= std_PanagaOrders.BHC %></td>
+              <td><%= std_PanagaOrders.contact_1 %></td>
+              <td><%= std_PanagaOrders.contact_2 %></td>
+              <td><%= std_PanagaOrders.radioTOD %></td>
+              <td><%= std_PanagaOrders.re %></td>
+              <td><%= std_PanagaOrders.pm %></td>
+              <td><%= std_PanagaOrders.dateSubmit %></td>
+              <td><%= std_PanagaOrders.email %></td>
+              <td><%= std_PanagaOrders.radioDistrict %></td> 
+              <td><%= std_PanagaOrders.radioNOTI %></td>
+              <td><%= std_PanagaOrders.radioDURATION %></td>
           </tr>
+      <%})%>
+      </tbody>
+    </table>
     
-        <tbody>
-        <%std_PanagaOrdersList.forEach(std_PanagaOrders => {%>
-            <tr>
-                <th scope="row"><%= std_PanagaOrders.name %></th>
-                <td><%= std_PanagaOrders.bruhims %></td>
-                <td><%= std_PanagaOrders.kampong %></td>
-                <td><%= std_PanagaOrders.jalan %></td>
-                <td><%= std_PanagaOrders.simpang %></td>
-                <td><%= std_PanagaOrders.house_Number %></td>
-                <td><%= std_PanagaOrders.contact_1 %></td>
-                <td><%= std_PanagaOrders.email %></td>
-                <td><%= std_PanagaOrders.qo %></td>
-                <td><%= std_PanagaOrders.radioTOD %></td>
-                <td><%= std_PanagaOrders.BNHC %></td>
-                <td><%= std_PanagaOrders.TUHC %></td>
-                <td><%= std_PanagaOrders.TEHC %></td>
-                <td><%= std_PanagaOrders.BHC %></td>
-                <td><%= std_PanagaOrders.radioDistrict %></td>
-                <td><%= std_PanagaOrders.pm %></td>
-                <td><%= std_PanagaOrders.re %></td>
-                <td><%= std_PanagaOrders.radioNOTI %></td>
-                <td><%= std_PanagaOrders.radioDURATION %></td>
-                <td><%= std_PanagaOrders.dateSubmit %></td>
-                <td><%= std_PanagaOrders.ordertaken %></td>
-                <td>   
-                    <form action="" method="post">
-                        <input type="checkbox" name="favorite1" value="Order Taken" /> Order Taken
-                        <input type="checkbox" name="favorite2" value="Not Taken" /> Not taken
-                      
-                      </form>
-                      
-                </td>
-            </tr>
-        <%})%>
-        </tbody>
-      </table>
-      
       <script>
         function searchTable() {
             var input, filter, found, table, tr, td, i, j;
