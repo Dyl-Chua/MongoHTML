@@ -101,66 +101,47 @@
 
     <table id="jpmcexpTable" class="table table-light table-striped table-bordered table-hover">
      
-        <thead>
-          <tr>
-            <th scope="col">name</th>
-            <th scope="col">bruhims</th>
-            <th scope="col">kampong</th>
-            <th scope="col">jalan</th>
-            <th scope="col">simpang</th>
-            <th scope="col">house_Number</th>
-            <th scope="col">contact_1</th>
-            <th scope="col">email</th>
-            <th scope="col">qo</th>
-            <th scope="col">radioTOD</th>
-            <th scope="col">BNHC</th>
-            <th scope="col">TUHC</th>
-            <th scope="col">TEHC</th>
-            <th scope="col">BHC</th>
-            <th scope="col">radioDistrict</th>
-            <th scope="col">pm</th>
-            <th scope="col">re</th>
-            <th scope="col">radioNOTI</th>
-            <th scope="col">radioDURATION</th>
-            <th scope="col">dateSubmit</th>
-            <th scope="col">ordertaken</th>
-            <th scope="col">Status</th>
-          </tr>
+         <tbody>
+        <tr>
+      <th scope="col">Quarantine</th>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Bruhims</th>
+      <th scope="col">IC Number</th>
+      <th scope="col">Appointment Place</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Additional Phone Number</th>
+      <th scope="col">Type of Delivery</th>
+      <th scope="col">Remarks</th>
+      <th scope="col">Payment</th>
+      <th scope="col">Submitted Date</th>
+     <th scope="col">Email</th>
+     <th scope="col">Health Center Districts</th>
+     <th scope="col">Notification</th>
+     <th scope="col">Duration</th>
+     </tr>
     
         <tbody>
         <%exp_JpmcOrderList.forEach(exp_JpmcOrder => {%>
             <tr>
+              <td><%= exp_JpmcOrder.qo %></td>
                 <th scope="row"><%= exp_JpmcOrder.name %></th>
+                <td><%= exp_JpmcOrder.kampong %>, <%= exp_JpmcOrder.jalan %>, <%= exp_JpmcOrder.simpang %>, <%= exp_JpmcOrder.house_Number %></td>
                 <td><%= exp_JpmcOrder.bruhims %></td>
-                <td><%= exp_JpmcOrder.kampong %></td>
-                <td><%= exp_JpmcOrder.jalan %></td>
-                <td><%= exp_JpmcOrder.simpang %></td>
-                <td><%= exp_JpmcOrder.house_Number %></td>
+               <td><%= exp_JpmcOrder.icNumber %></td>
+               <td><%= exp_JpmcOrder.BNHC %>, <%= exp_JpmcOrder.TUHC %>, <%= exp_JpmcOrder.TEHC %>, <%= exp_JpmcOrder.BHC %></td>
                 <td><%= exp_JpmcOrder.contact_1 %></td>
-                <td><%= exp_JpmcOrder.email %></td>
-                <td><%= exp_JpmcOrder.qo %></td>
+                <td><%= exp_JpmcOrder.contact_2 %></td>              
                 <td><%= exp_JpmcOrder.radioTOD %></td>
-                <td><%= exp_JpmcOrder.BNHC %></td>
-                <td><%= exp_JpmcOrder.TUHC %></td>
-                <td><%= exp_JpmcOrder.TEHC %></td>
-                <td><%= exp_JpmcOrder.BHC %></td>
-                <td><%= exp_JpmcOrder.radioDistrict %></td>
-                <td><%= exp_JpmcOrder.pm %></td>
                 <td><%= exp_JpmcOrder.re %></td>
+                <td><%= exp_JpmcOrder.pm %></td>
+                <td><%= exp_JpmcOrder.dateSubmit %></td>
+                <td><%= exp_JpmcOrder.email %></td>
+                <td><%= exp_JpmcOrder.radioDistrict %></td>
                 <td><%= exp_JpmcOrder.radioNOTI %></td>
                 <td><%= exp_JpmcOrder.radioDURATION %></td>
-                <td><%= exp_JpmcOrder.dateSubmit %></td>
                 <td><%= exp_JpmcOrder.ordertaken %></td>
-                <td>   
-                    <form action="" method="post">
-                        <input type="checkbox" name="favorite1" value="Order Taken" /> Order Taken
-                        <input type="checkbox" name="favorite2" value="Not Taken" /> Not taken
-                      
-                      </form>
-                      
-      
 
-                </td>
             </tr>
         <%})%>
         </tbody>
