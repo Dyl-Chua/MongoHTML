@@ -61,68 +61,49 @@
       <input type="text" id="mohimeInput" onkeyup="searchTable()" placeholder="Search">
 
     <table id="mohimeTable" class="table table-light table-striped table-bordered table-hover">
-        <thead>
-          <tr>
-            <th scope="col">name</th>
-            <th scope="col">bruhims</th>
-            <th scope="col">kampong</th>
-            <th scope="col">jalan</th>
-            <th scope="col">simpang</th>
-            <th scope="col">house_Number</th>
-            <th scope="col">contact_1</th>
-            <th scope="col">email</th>
-            <th scope="col">qo</th>
-            <th scope="col">radioTOD</th>
-            <th scope="col">BNHC</th>
-            <th scope="col">TUHC</th>
-            <th scope="col">TEHC</th>
-            <th scope="col">BHC</th>
-            <th scope="col">radioDistrict</th>
-            <th scope="col">pm</th>
-            <th scope="col">re</th>
-            <th scope="col">radioNOTI</th>
-            <th scope="col">radioDURATION</th>
-            <th scope="col">dateSubmit</th>
-            <th scope="col">ordertaken</th>
-            <th scope="col">Status</th>
-          </tr>
-    
-        <tbody>
-        <%ime_MohOrderList.forEach(ime_MohOrder => {%>
-            <tr>
-                <th scope="row"><%= ime_MohOrder.name %></th>
-                <td><%= ime_MohOrder.bruhims %></td>
-                <td><%= ime_MohOrder.kampong %></td>
-                <td><%= ime_MohOrder.jalan %></td>
-                <td><%= ime_MohOrder.simpang %></td>
-                <td><%= ime_MohOrder.house_Number %></td>
-                <td><%= ime_MohOrder.contact_1 %></td>
-                <td><%= ime_MohOrder.email %></td>
-                <td><%= ime_MohOrder.qo %></td>
-                <td><%= ime_MohOrder.radioTOD %></td>
-                <td><%= ime_MohOrder.BNHC %></td>
-                <td><%= ime_MohOrder.TUHC %></td>
-                <td><%= ime_MohOrder.TEHC %></td>
-                <td><%= ime_MohOrder.BHC %></td>
-                <td><%= ime_MohOrder.radioDistrict %></td>
-                <td><%= ime_MohOrder.pm %></td>
-                <td><%= ime_MohOrder.re %></td>
-                <td><%= ime_MohOrder.radioNOTI %></td>
-                <td><%= ime_MohOrder.radioDURATION %></td>
-                <td><%= ime_MohOrder.dateSubmit %></td>
-                <td><%= ime_MohOrder.ordertaken %></td>
-                <td>   
-                    <form action="" method="post">
-                        <input type="checkbox" name="favorite1" value="Order Taken" /> Order Taken
-                        <input type="checkbox" name="favorite2" value="Not Taken" /> Not taken
-                      
-                      </form>
-                      
-                </td>
-            </tr>
-        <%})%>
-        </tbody>
-      </table>
+       <tbody>
+        <tr>
+      <th scope="col">Quarantine</th>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Bruhims</th>
+      <th scope="col">IC Number</th>
+      <th scope="col">Appointment Place</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Additional Phone Number</th>
+      <th scope="col">Type of Delivery</th>
+      <th scope="col">Remarks</th>
+      <th scope="col">Payment</th>
+      <th scope="col">Submitted Date</th>
+     <th scope="col">Email</th>
+     <th scope="col">Health Center Districts</th>
+     <th scope="col">Notification</th>
+     <th scope="col">Duration</th>
+     </tr>
+
+<tbody>
+  <%ime_MohOrderList.forEach(ime_MohOrder => {%>
+      <tr>
+        <td><%= ime_MohOrder.qo %></td>
+          <th scope="row"><%= ime_MohOrder.name %></th>
+          <td><%= ime_MohOrder.kampong %>, <%= ime_MohOrder.jalan %>, <%= ime_MohOrder.simpang %>, <%= ime_MohOrder.house_Number %></td>             
+          <td><%= ime_MohOrder.bruhims %></td>
+          <td><%= ime_MohOrder.icNumber %></td>
+          <td><%= ime_MohOrder.BNHC %>, <%= ime_MohOrder.TUHC %>, <%= ime_MohOrder.TEHC %>, <%= ime_MohOrder.BHC %></td>
+          <td><%= ime_MohOrder.contact_1 %></td>
+          <td><%= ime_MohOrder.contact_2 %></td>
+          <td><%= ime_MohOrder.radioTOD %></td>
+          <td><%= ime_MohOrder.re %></td>
+          <td><%= ime_MohOrder.pm %></td>
+          <td><%= ime_MohOrder.dateSubmit %></td>
+          <td><%= ime_MohOrder.email %></td>
+          <td><%= ime_MohOrder.radioDistrict %></td> 
+          <td><%= ime_MohOrder.radioNOTI %></td>
+          <td><%= ime_MohOrder.radioDURATION %></td>
+      </tr>
+  <%})%>
+  </tbody>
+</table>
       
       <script>
         function searchTable() {
